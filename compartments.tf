@@ -1,10 +1,9 @@
-
 # -----------------------------------------------------------------------------
 # Create compartment(s) for application specific workloads
 # -----------------------------------------------------------------------------
 module "workload-compartment" {
   source                        = "./compartments/workload-compartment"
-  compartment_name              = var.compartment_name
+  workload_compartment_name     = var.workload_compartment_name
   applications_compartment_ocid = var.applications_compartment_id
   compartment_delete_enabled    = var.is_sandbox_mode_enabled
 

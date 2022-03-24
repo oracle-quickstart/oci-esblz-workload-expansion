@@ -6,7 +6,7 @@ variable "applications_compartment_ocid" {
   description = "The OCID of the applications compartment"
 }
 
-variable "compartment_name" {
+variable "workload_compartment_name" {
   type        = string
   description = "The name of the compartment"
 }

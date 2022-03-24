@@ -56,18 +56,3 @@ variable "is_sandbox_mode_enabled" {
   type        = bool
   description = "Do you want to run the stack in Sandbox mode?"
 }
-
-variable "workload_name" {
-  type        = string
-  description = "Name of workload used in resource naming"
-}
-
-variable "applications_compartment_id" {
-  type        = string
-  description = "Parent compartment to attach workload compartment to"
-}
-
-variable "vcn_ocid" {
-  type        = string
-  description = "VCN to attach workload subnet to"
-}
