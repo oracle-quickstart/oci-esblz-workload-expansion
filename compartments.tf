@@ -11,6 +11,6 @@ module "workload-compartment" {
   tag_cost_center  = var.tag_cost_center
 
   providers = {
-    oci.home_region = oci.home_region
+    oci = oci.home_region
   }
 }
