@@ -3,6 +3,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 module "groups" {
   source       = "./iam/groups"
+  count                              = var.deploy_global_resources ? 1 : 0
   tenancy_ocid = var.tenancy_ocid
 
   workload_compartment_name          = var.workload_compartment_name
@@ -16,7 +17,7 @@ module "groups" {
   suffix           = var.is_sandbox_mode_enabled == true ? "-${random_id.suffix.hex}" : ""
 
   providers = {
-    oci.home_region = oci.home_region
+    oci = oci.home_region
   }
 }
 
@@ -25,6 +26,7 @@ module "groups" {
 # ---------------------------------------------------------------------------------------------------------------------
 module "policies" {
   source                             = "./iam/policies"
+  count                              = var.deploy_global_resources ? 1 : 0
   tenancy_ocid                       = var.tenancy_ocid
   region                             = var.region
 
@@ -33,16 +35,16 @@ module "policies" {
   network_compartment_id             = var.network_compartment_id
   network_compartment_name           = var.network_compartment_name
 
-  workload_storage_admins_group_name = module.groups.workload_storage_admins_group_name
-  workload_storage_users_group_name  = module.groups.workload_storage_users_group_name
-  workload_admins_group_name         = module.groups.workload_admins_group_name
-  workload_users_group_name          = module.groups.workload_users_group_name
+  workload_storage_admins_group_name = module.groups[0].workload_storage_admins_group_name
+  workload_storage_users_group_name  = module.groups[0].workload_storage_users_group_name
+  workload_admins_group_name         = module.groups[0].workload_admins_group_name
+  workload_users_group_name          = module.groups[0].workload_users_group_name
 
   tag_cost_center                    = var.tag_cost_center
   tag_geo_location                   = var.tag_geo_location
   suffix                             = var.is_sandbox_mode_enabled == true ? "-${random_id.suffix.hex}" : ""
 
   providers = {
-    oci.home_region = oci.home_region
+    oci = oci.home_region
   }
 }

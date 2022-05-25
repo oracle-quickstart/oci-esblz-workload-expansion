@@ -2,7 +2,7 @@ terraform {
   required_providers {
     oci = {
       source                = "oracle/oci"
-      configuration_aliases = [oci.home_region]
+      configuration_aliases = [oci]
     }
   }
 }
@@ -21,4 +21,9 @@ resource "oci_identity_compartment" "workload_compartment" {
     "CostCenter"  = var.tag_cost_center,
     "GeoLocation" = var.tag_geo_location
   }
+}
+
+resource "time_sleep" "wait_90_seconds" {
+  depends_on      = [oci_identity_compartment.workload_compartment]
+  create_duration = "90s"
 }
