@@ -13,7 +13,7 @@ terraform {
 resource "oci_identity_policy" "workload_storage_admins_policies" {
   compartment_id = var.workload_compartment_id
   description    = "OCI Landing Zone Workload Specific Storage Administrator Policies"
-  name           = "OCI-LZ-${var.workload_compartment_name}-StorageAdminPolicy"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Storage-Admin-Policy"
 
   freeform_tags = {
     "Description" = "Policy for Workload Specific Storage Administrator",
@@ -39,7 +39,7 @@ resource "oci_identity_policy" "workload_storage_admins_policies" {
 resource "oci_identity_policy" "workload_storage_users_policies" {
   compartment_id = var.workload_compartment_id
   description    = "OCI Landing Zone Storage Workload User Policy"
-  name           = "OCI-LZ-${var.workload_compartment_name}-WorkloadStorageUserPolicy"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Workload-Storage-User-Policy"
 
   freeform_tags = {
     "Description" = "Policy for Workload Specific Storage Users",
@@ -61,7 +61,7 @@ resource "oci_identity_policy" "workload_storage_users_policies" {
 resource "oci_identity_policy" "workload_admins_policies" {
   compartment_id = var.workload_compartment_id
   description    = "OCI Landing Zone Workload User Policy"
-  name           = "OCI-LZ-${var.workload_compartment_name}-WorkloadAdminPolicy"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Workload-Admin-Policy"
 
   freeform_tags = {
     "Description" = "Policy for Workload Specific Administrators",
@@ -97,7 +97,7 @@ resource "oci_identity_policy" "workload_admins_policies" {
 resource "oci_identity_policy" "workload_admins_policies_network" {
   compartment_id = var.network_compartment_id
   description    = "OCI Landing Zone Workload User Policy"
-  name           = "OCI-LZ-${var.workload_compartment_name}-WorkloadAdminPolicy-Network"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Workload-Admin-Policy-Network"
 
   freeform_tags = {
     "Description" = "Network Policy for Workload Specific Administrators",
@@ -116,7 +116,7 @@ resource "oci_identity_policy" "workload_admins_policies_network" {
 resource "oci_identity_policy" "workload_users_policies" {
   compartment_id = var.workload_compartment_id
   description    = "OCI Landing Zone Workload User Policy"
-  name           = "OCI-LZ-${var.workload_compartment_name}-WorkloadUserPolicy"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Workload-User-Policy"
 
   freeform_tags = {
     "Description" = "Policy for Workload Specific Users",
@@ -139,7 +139,7 @@ resource "oci_identity_policy" "workload_users_policies" {
 resource "oci_identity_policy" "workload_users_policies_network" {
   compartment_id = var.network_compartment_id
   description    = "OCI Landing Zone Workload User Policy"
-  name           = "OCI-LZ-${var.workload_compartment_name}-WorkloadUserPolicy-Network"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Workload-User-Policy-Network"
 
   freeform_tags = {
     "Description" = "Network Policy for Workload Specific Users",
