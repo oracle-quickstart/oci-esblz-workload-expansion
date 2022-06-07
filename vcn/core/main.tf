@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 resource "oci_core_subnet" "private_subnet" {
   cidr_block                 = var.private_subnet_cidr_block
-  display_name               = "OCI-LZ-private-${var.workload_compartment_name}-${var.region_key}-subnet"
+  display_name               = "OCI-LZ-Private-${var.workload_compartment_name}-${var.region_key}-Subnet"
   dns_label                  = var.private_subnet_dns_label
   compartment_id             = var.compartment_ocid
   vcn_id                     = var.vcn_id
@@ -40,7 +40,7 @@ resource "oci_core_route_table" "workload_nat_route_table" {
 # -----------------------------------------------------------------------------
 resource "oci_core_subnet" "database_subnet" {
   cidr_block                 = var.database_subnet_cidr_block
-  display_name               = "OCI-LZ-private-${var.workload_compartment_name}-${var.region_key}-database-subnet"
+  display_name               = "OCI-LZ-Private-${var.workload_compartment_name}-${var.region_key}-Database-Subnet"
   dns_label                  = var.database_subnet_dns_label
   compartment_id             = var.compartment_ocid
   vcn_id                     = var.vcn_id
@@ -58,7 +58,7 @@ resource "oci_core_subnet" "database_subnet" {
 # -----------------------------------------------------------------------------
 resource "oci_core_route_table" "database_nat_route_table" {
   compartment_id = var.compartment_ocid
-  display_name   = "OCI-LZ-VCN-${var.workload_compartment_name}-database-${var.region_key}-RouteTable"
+  display_name   = "OCI-LZ-VCN-${var.workload_compartment_name}-Database-${var.region_key}-RouteTable"
   vcn_id         = var.vcn_id
   freeform_tags = {
     "Description" = "Primary VCN - Database NAT route table for ${var.workload_compartment_name}"
