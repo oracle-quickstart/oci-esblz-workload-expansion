@@ -75,10 +75,10 @@ resource "oci_identity_policy" "workload_admins_policies" {
     "Allow group ${var.workload_admins_group_name} to manage instance-images in compartment ${var.workload_compartment_name}",
     "Allow group ${var.workload_admins_group_name} to manage instances in compartment ${var.workload_compartment_name}",
     "Allow group ${var.workload_admins_group_name} to manage object-family in compartment ${var.workload_compartment_name}",
-    "Allow group ${var.workload_admins_group_name} to use volume-family in compartment ${var.workload_compartment_name}",
+    "Allow group ${var.workload_admins_group_name} to manage volume-family in compartment ${var.workload_compartment_name}",
     # Ability to do all things with instance configurations, instance pools, and cluster networks
     "Allow group ${var.workload_admins_group_name} to manage compute-management-family in compartment ${var.workload_compartment_name}",
-    "Allow group ${var.workload_admins_group_name} to read instance-family in compartment ${var.workload_compartment_name}",
+    "Allow group ${var.workload_admins_group_name} to manage instance-family in compartment ${var.workload_compartment_name}",
     "Allow group ${var.workload_admins_group_name} to inspect volumes in compartment ${var.workload_compartment_name}",
     # If resources used by the instance pool contain default tags, add the following  to give the group permission to the tag namespace Oracle-Tags
     "Allow group ${var.workload_admins_group_name} to use tag-namespaces in compartment ${var.workload_compartment_name} where target.tag-namespace.name = 'oracle-tags'",
