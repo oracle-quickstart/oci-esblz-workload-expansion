@@ -90,7 +90,10 @@ resource "oci_identity_policy" "workload_admins_policies" {
     # Ability to create and list subscriptions to images in the partner Image catalog.
     "Allow group ${var.workload_admins_group_name} to manage app-catalog-listing in compartment ${var.workload_compartment_name}",
     # Ability to create, update and delete dedicated Virtual Machine Hosts
-    "Allow group ${var.workload_admins_group_name} to manage dedicated-vm-hosts in compartment ${var.workload_compartment_name}"
+    "Allow group ${var.workload_admins_group_name} to manage dedicated-vm-hosts in compartment ${var.workload_compartment_name}",
+    # The policy in Let users launch compute instances includes the ability to enable and disable individual plugins, as well as start and stop all plugins on an instance
+    # allow users to access the available plugins
+    "Allow group ${var.workload_admins_group_name} to read instance-agent-plugins in compartment ${var.workload_compartment_name}",
   ]
 }
 
