@@ -115,7 +115,7 @@ variables:
     type: string
     description: OCID of the network compartment. 
     required: true
-    title: Applications Compartment OCID
+    title: Network Compartment OCID
   show_extra_group_names:
     type: boolean
     default: false
