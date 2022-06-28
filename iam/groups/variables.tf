@@ -42,6 +42,11 @@ variable "workload_users_group_name" {
   description = "The name for the workload users group"
 }
 
+variable "database_admins_group_name" {
+  type        = string
+  description = "The name for the database administrators group"
+}
+
 # -----------------------------------------------------------------------------
 # Tag Variables
 # -----------------------------------------------------------------------------

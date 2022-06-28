@@ -92,7 +92,7 @@ resource "oci_identity_policy" "workload_admins_policies" {
     # Ability to create, update and delete dedicated Virtual Machine Hosts
     "Allow group ${var.workload_admins_group_name} to manage dedicated-vm-hosts in compartment ${var.workload_compartment_name}",
     # The policy in Let users launch compute instances includes the ability to enable and disable individual plugins, as well as start and stop all plugins on an instance
-    # allow users to access the available plugins
+    # Allow users to access the available plugins
     "Allow group ${var.workload_admins_group_name} to read instance-agent-plugins in compartment ${var.workload_compartment_name}",
   ]
 }
@@ -152,5 +152,51 @@ resource "oci_identity_policy" "workload_users_policies_network" {
 
   statements = [
     "Allow group ${var.workload_users_group_name} to use virtual-network-family in compartment ${var.network_compartment_name}",
+  ]
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
+# IAM Policies Database Admins
+# ---------------------------------------------------------------------------------------------------------------------
+resource "oci_identity_policy" "database_admins_policies" {
+  compartment_id = var.workload_compartment_id
+  description    = "OCI Landing Zone Database Admin Policy"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Database-Admin-Policy"
+
+  freeform_tags = {
+    "Description" = "Policy for Workload Specific Database Administrators",
+    "CostCenter"  = var.tag_cost_center,
+    "GeoLocation" = var.tag_geo_location
+  }
+
+  statements = [
+    "Allow group ${var.database_admins_group_name} to read all-resources in compartment ${var.workload_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to manage database-family in compartment ${var.workload_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to manage autonomous-database-family in compartment ${var.workload_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to manage external-database-family in compartment ${var.workload_compartment_name}",
+
+    "Allow group ${var.database_admins_group_name} to manage object-family in compartment ${var.workload_compartment_name} where all{request.permission != 'OBJECT_DELETE', request.permission != 'BUCKET_DELETE'}",
+    "Allow group ${var.database_admins_group_name} to manage instance-family in compartment ${var.workload_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to manage volume-family in compartment ${var.workload_compartment_name} where all{request.permission != 'VOLUME_BACKUP_DELETE', request.permission != 'VOLUME_DELETE', request.permission != 'BOOT_VOLUME_BACKUP_DELETE'}",
+    "Allow group ${var.database_admins_group_name} to manage file-family in compartment ${var.workload_compartment_name} where all{request.permission != 'FILE_SYSTEM_DELETE', request.permission != 'MOUNT_TARGET_DELETE', request.permission != 'EXPORT_SET_DELETE', request.permission != 'FILE_SYSTEM_DELETE_SNAPSHOT', request.permission != 'FILE_SYSTEM_NFSv3_UNEXPORT'}",
+  ]
+}
+
+resource "oci_identity_policy" "database_admins_policies_network" {
+  compartment_id = var.network_compartment_id
+  description    = "OCI Landing Zone Database Admin Network Policy"
+  name           = "OCI-LZ-${var.workload_compartment_name}-Database-Admin-Policy-Network"
+
+  freeform_tags = {
+    "Description" = "Network Policy for Workload Database Specific Administrators",
+    "CostCenter"  = var.tag_cost_center,
+    "GeoLocation" = var.tag_geo_location
+  }
+
+  statements = [
+    "Allow group ${var.database_admins_group_name} to read virtual-network-family in compartment ${var.network_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to use vnics in compartment ${var.network_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to use subnets in compartment ${var.network_compartment_name}",
+    "Allow group ${var.database_admins_group_name} to use network-security-groups in compartment ${var.network_compartment_name}"
   ]
 }

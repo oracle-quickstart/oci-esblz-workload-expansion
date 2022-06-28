@@ -66,3 +66,18 @@ resource "oci_identity_group" "workload_users_group" {
     "GeoLocation" = var.tag_geo_location
   }
 }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# IAM Group for Database Admins 
+# ---------------------------------------------------------------------------------------------------------------------
+resource "oci_identity_group" "database_admins_group" {
+  compartment_id = var.tenancy_ocid
+  description    = "OCI Landing Zone Database Admins Group"
+  name           = "${var.database_admins_group_name}-${var.workload_compartment_name}${var.suffix}"
+
+  freeform_tags = {
+    "Description" = "Group for Database Admins",
+    "CostCenter"  = var.tag_cost_center,
+    "GeoLocation" = var.tag_geo_location
+  }
+}
