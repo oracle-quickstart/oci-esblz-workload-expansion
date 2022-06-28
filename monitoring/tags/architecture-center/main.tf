@@ -36,7 +36,7 @@ resource "oci_identity_tag" "ArchitectureCenterTag" {
   }
 }
 
-resource "oci_identity_tag_default" "benchmarking_tag_default" {
+resource "oci_identity_tag_default" "architecture_center_tag_default" {
   compartment_id    = var.parent_compartment_id
   tag_definition_id = oci_identity_tag.ArchitectureCenterTag.id
   value             = var.release_tag_default_value
