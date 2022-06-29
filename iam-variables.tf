@@ -40,3 +40,13 @@ variable "workload_users_group_name" {
     error_message = "Allowed maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
   }
 }
+
+variable "database_admins_group_name" {
+  type        = string
+  description = "The name for the database administrators group"
+  default     = "Workload-Database-Admins"
+  validation {
+    condition     = can(regex("^([\\w\\.-]){1,100}$", var.database_admins_group_name))
+    error_message = "Allowed maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+  }
+}

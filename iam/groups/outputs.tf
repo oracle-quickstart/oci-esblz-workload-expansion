@@ -25,3 +25,10 @@ output "workload_admins_group_name" {
 output "workload_users_group_name" {
   value = oci_identity_group.workload_users_group.name
 }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Output for Database Admins (Group Names)
+# ---------------------------------------------------------------------------------------------------------------------
+output "database_admins_group_name" {
+  value = oci_identity_group.database_admins_group.name
+}
