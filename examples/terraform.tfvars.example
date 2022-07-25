@@ -1,0 +1,24 @@
+# PROVIDER
+region               = "us-phoenix-1"
+tenancy_ocid         = "ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+current_user_ocid    = "ocid1.user.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+api_fingerprint      = "a1:b2:c3:4d:5e:6f:7g:8h:99:10:aa:bb:11:12:13:cc"
+api_private_key_path = "~/path_to_example_api_key.pem"
+
+is_sandbox_mode_enabled = true
+tag_cost_center         = "example_tag_1"
+tag_geo_location        = "example_tag_2"
+
+network_compartment_id      = "ocid1.compartment.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+applications_compartment_id = "ocid1.compartment.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+workload_compartment_name   = "workload-1"
+network_compartment_name    = "network"
+
+vcn_id         = "ocid1.vcn.oc1.phx.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+nat_gateway_id = "ocid1.natgateway.oc1.phx.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+private_subnet_cidr_block  = "10.0.2.0/24"
+private_subnet_dns_label   = "private0"
+database_subnet_cidr_block = "10.0.4.0/24"
+database_subnet_dns_label  = "database0"
