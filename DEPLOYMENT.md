@@ -1,6 +1,6 @@
 # Deploying the Workload Expansion 
 
-1. Deploy the Baseline stack found [here](https://github.com/oracle-quickstart/oci-enterprise-scale-baseline-landing-zone). The Workload Expansion can not be deployed as a stand-alone. It builds on top of the Enterprise Scale Baseline Landing Zone adding a minimal baseline for a workload.
+1. Deploy the Baseline stack found [here](https://github.com/oci-landing-zones/oci-enterprise-scale-baseline-landing-zone). The Workload Expansion can not be deployed as a stand-alone. It builds on top of the Enterprise Scale Baseline Landing Zone adding a minimal baseline for a workload.
 
 2. Create a terraform.tfvars file and populate with the required variables or override existing variables. Note: An example tfvars file is included for reference. Using this file is the preferred way to run the stack from the CLI, because of the large number of variables to manage. 
 

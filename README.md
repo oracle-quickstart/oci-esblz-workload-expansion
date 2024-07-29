@@ -1,5 +1,5 @@
 # oci-esblz-workload-expansion
-This Terraform stack deploys the Workload Expansion to the [Baseline Landing Zone](https://github.com/oracle-quickstart/oci-enterprise-scale-baseline-landing-zone).
+This Terraform stack deploys the Workload Expansion to the [Baseline Landing Zone](https://github.com/oci-landing-zones/oci-enterprise-scale-baseline-landing-zone).
 
 This Workload Expansion extends the Baseline Landing Zone deploying minimal resources needed to add a workload to the Baseline.
 
@@ -7,7 +7,7 @@ This Workload Expansion extends the Baseline Landing Zone deploying minimal reso
 - [Terraform](https://www.terraform.io/) >= 1.0.0
 
 ## Prerequisites
-The [Enterprise Scale Baseline Landing Zone](https://github.com/oracle-quickstart/oci-enterprise-scale-baseline-landing-zone) must be deployed prior to this stack. 
+The [Enterprise Scale Baseline Landing Zone](https://github.com/oci-landing-zones/oci-enterprise-scale-baseline-landing-zone) must be deployed prior to this stack. 
 
 Detailed project prerequisites are included in the following [OCI CAF - Architecture Documentation](https://docs.oracle.com/en-us/iaas/Content/cloud-adoption-framework/technology-implementation.htm).
 
@@ -21,7 +21,7 @@ category a particular variable belongs to. Not all the variables in this file ar
 ## Deploy Using Oracle Resource Manager
 1. Click to deploy the stack
    
-[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/oracle-quickstart/oci-enterprise-scale-baseline-landing-zone/releases/download/latest/oci-enterprise-scale-baseline-landing-zone.zip)
+[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/oci-landing-zones/oci-enterprise-scale-baseline-landing-zone/releases/download/latest/oci-enterprise-scale-baseline-landing-zone.zip)
 
     If you aren't already signed in, when prompted, enter the tenancy and user credentials. Review and accept the terms and conditions.
 
